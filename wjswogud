@@ -1,0 +1,41 @@
+import time
+import os
+
+def print_triangle(n):
+    # 직삼각형 출력 (왼쪽)
+    for i in range(1, n+1):
+        print('*' * i)
+    
+    # 역 직삼각형 출력 (오른쪽)
+    for i in range(n, 0, -1):
+        print('*' * i)
+
+def display_splash_screen(name, date):
+    os.system('cls' if os.name == 'nt' else 'clear')  # 화면 지우기 (Windows, Unix)
+
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("                         [마그라테아 ver 0.1]                               ")
+    print("           풀 한 포기 없는 황무지에서 반짝이는 행성을 만들내는 곳 마그라테아,         ")
+    print("         사람들이 보지 못하는 잠재력을 찾고 전문가의 손길을 더해 보석을 빗는 곳,    ")
+    print("           마그라테아에 오신걸 환영합니다.   ")
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print(f"[사용자]: {name}                                   [실행 시간]: {date}")
+    print("="*80)
+
+def main():
+    # 날짜와 이름 입력 받기
+    date = input("[현재 날짜를 'yyyy-mm-dd' 형식으로 입력하세요]: ")
+    name = input("[당신의 이름을 입력하세요]: ")
+
+    # 입력 정상 처리 메시지 출력
+    print("**입력이 정상적으로 처리되었습니다.**")
+
+    # 3초 대기 후 화면 지우고 스플래시 화면 출력
+    time.sleep(3)
+    display_splash_screen(name, date)
+
+    # 스플래시 화면에 삼각형 출력
+    print_triangle(5)
+
+if __name__ == "__main__":
+    main()
